@@ -1,0 +1,19 @@
+# 30秒刷新
+refresh_rate="30 seconds"
+ 
+[appenders]
+# 标准输出配置
+stdout={kind="console", encoder={pattern="{d(%Y-%m-%d %H:%M:%S)} {h({l})} [{M}] - {m}{n}"}}
+# 文件配置
+systems={kind="file",  path="log/systems.log", encoder={pattern="{d(%Y-%m-%d %H:%M:%S)} {h({l})} [{M}] - {m}{n}"}}
+ 
+# 日志级别显示日志等
+[root]
+level="info"
+appenders=["stdout","systems"]
+ 
+[loggers]
+# 
+"app::backend:db"={level="info"}
+# 
+"app::requests"={level="info",appenders=["systems"],additive=false}

@@ -1,0 +1,24 @@
+[service]
+# 端口
+port=10086
+# mongo地址
+mongo="mongodb://localhost:27017"
+
+
+[rabbitmq]
+#消息队列服务器地址
+server="127.0.0.1"
+#端口
+port=1883
+#主题
+topic="topic.clientlog"
+#自身连接的clientid
+clientid="ylz_log_viewer"
+#不加延时publish会失败单位毫秒
+sleep=200
+
+user="clientlog"
+password="clientlog"
+
+[client]
+root="E:/Work/rust/log_tool/log"
